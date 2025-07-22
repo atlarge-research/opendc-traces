@@ -3,14 +3,15 @@
 import pyarrow as pa
 import pyarrow.parquet as pq
 import os
+import copy
 
 
 def writeTrace(df_tasks, df_fragments, workload_schema, output_path):
     if not os.path.exists(f"{output_path}"):
         os.makedirs(f"{output_path}") 
 
-    schema_tasks = workload_schema["pa_tasks_schema_required"]
-    tasks_columns = workload_schema["tasks_columns_required"]
+    schema_tasks = copy.deepcopy(workload_schema["pa_tasks_schema_required"])
+    tasks_columns = copy.deepcopy(workload_schema["tasks_columns_required"])
 
     for column in workload_schema["tasks_columns_optional"]:
         if column in df_tasks.columns:
@@ -20,8 +21,8 @@ def writeTrace(df_tasks, df_fragments, workload_schema, output_path):
     df_tasks = df_tasks[tasks_columns]
         
         
-    schema_fragments = workload_schema["pa_fragments_schema_required"]
-    fragments_columns = workload_schema["fragments_columns_required"]
+    schema_fragments = copy.deepcopy(workload_schema["pa_fragments_schema_required"])
+    fragments_columns = copy.deepcopy(workload_schema["fragments_columns_required"])
 
     for column in workload_schema["fragments_columns_optional"]:
         if column in df_fragments.columns:
