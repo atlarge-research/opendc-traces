@@ -25,11 +25,12 @@ df_tasks = pd.DataFrame([
             "cpu_count", "cpu_capacity", "mem_capacity"])
     
 df_fragments = pd.DataFrame([
-    [1, 3_600_000, 1, 1_000],
+    [1, 1_800_000, 1, 0.0],
+    [1, 1_800_000, 1, 1000.0],
 ], columns=["id", "duration", "cpu_count","cpu_usage"])
 
 # %%
 
-writeTrace(df_tasks, df_fragments, workload_schema, "traces/v5/simple_workload")
+writeTrace(df_tasks, df_fragments, workload_schema, "traces/v5/test_0_1")
 
 # %%
