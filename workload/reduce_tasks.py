@@ -12,28 +12,40 @@ from utils.write_workload_trace import writeTrace
 # %%
 
 
-df_tasks = pd.read_parquet("traces/v5/borg/tasks.parquet")
-df_fragments = pd.read_parquet("traces/v5/borg/fragments.parquet")
+df_tasks = pd.read_parquet("traces/v5/solvinity-2025/tasks.parquet")
+df_fragments = pd.read_parquet("traces/v5/solvinity-2025/fragments.parquet")
+
+# %%
+
+tasks = df_tasks["id"].unique()
+
+# %%
+
+print(len(tasks))
 
 
 # %%
 
-start_time = df_tasks["submission_time"].min()
+reduction_factor = 0.5
 
-max_finish_time = start_time + (1000 * 3600 * 24 * 7)
-
-# %%
-
-df_tasks_small = df_tasks[(df_tasks["submission_time"] + df_tasks["duration"]) <= max_finish_time]
-
-ids = df_tasks_small["id"].unique()
+new_tasks = tasks[:int(len(tasks) * reduction_factor)]
 
 
 # %%
 
-df_fragments_small = df_fragments[df_fragments["id"].isin(ids)]
+print(len(new_tasks))
 
-writeTrace(df_tasks_small, df_fragments_small, workload_schema, f"traces/v5/borg_week")
+
+# %%
+
+df_tasks_small = df_tasks[df_tasks["id"].isin(new_tasks)]
+df_fragments_small = df_fragments[df_fragments["id"].isin(new_tasks)]
+
+
+# %%
+
+
+writeTrace(df_tasks_small, df_fragments_small, workload_schema, f"traces/v5/solvinity-2025-reduced-0.5")
 # %%
 
 # task_id = 11534573

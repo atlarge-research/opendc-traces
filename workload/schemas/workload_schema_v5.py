@@ -18,7 +18,8 @@ workload_schema["pa_tasks_schema_optional"] = {
     "parents": pa.field("parents", pa.list_(pa.int32()), nullable=True),
     "children": pa.field("children", pa.list_(pa.int32()), nullable=True),
     "deferrable": pa.field("deferrable", pa.bool_(), nullable=True),
-    "deadline": pa.field("deadline", pa.int64(), nullable=True)
+    "deadline": pa.field("deadline", pa.int64(), nullable=True),
+    "num_fragments": pa.field("num_fragments", pa.int32(), nullable=True)
 }
 
 workload_schema["tasks_columns_required"] = ["id", "submission_time", "duration", 
@@ -26,7 +27,7 @@ workload_schema["tasks_columns_required"] = ["id", "submission_time", "duration"
                               "mem_capacity"]
 
 workload_schema["tasks_columns_optional"] = ["name", "gpu_count", "gpu_capacity",
-                             "parents", "children", "defferable", "deadline"]
+                             "parents", "children", "deferrable", "deadline", "num_fragments"]
 
 workload_schema["pa_fragments_schema_required"] = pa.schema([
     pa.field("id", pa.int32(), nullable=False),
