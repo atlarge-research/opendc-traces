@@ -2,7 +2,6 @@
 
 import pandas as pd 
 
-from schemas.workload_schema_v5 import workload_schema
 from utils.write_workload_trace import writeTrace
 
 # %%
@@ -29,6 +28,6 @@ df_fragments = pd.DataFrame([
 
 # %%
 
-writeTrace(df_tasks, df_fragments, workload_schema, "traces/v5/workflow_example")
+writeTrace(df_tasks, df_fragments, "v6_2", "traces/v6_2/workflow_example")
 
 # %%
