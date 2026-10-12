@@ -14,10 +14,6 @@ The schema of a workload is divided into required and optional columns. The sche
 ## Schemas
 Over time, the workload schema has been updated multiple times:
 
-- Version 1 -> [OpenDC v2.1](https://github.com/atlarge-research/opendc/releases/tag/v2.1) 
-
-- Version 2 -> [OpenDC v2.3](https://github.com/atlarge-research/opendc/releases/tag/v2.3)
-
 |Schema Version|Commit|Date|First Release|Changes|
 |---|---|---|--|--|
 |v1|[cd0b456](https://github.com/atlarge-research/opendc/commit/cd0b45627f0d8da8c8dc4edde223f3c36e9bcfbf)|2021-04-25|[OpenDC v2](https://github.com/atlarge-research/opendc/releases/tag/v2)|First Parquet Format used. Introduced by OpenDC2 and Capelin.|
