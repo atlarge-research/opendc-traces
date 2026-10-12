@@ -6,7 +6,7 @@ import pandas as pd
 
 # %%
 
-trace_name = "solvinity"
+trace_name = "bitbrains-small"
 
 df_tasks = pd.read_parquet(f"traces/v6_2/{trace_name}/tasks.parquet")
 df_fragments = pd.read_parquet(f"traces/v6_2/{trace_name}/fragments.parquet")
