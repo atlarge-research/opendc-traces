@@ -2,12 +2,3 @@
 .venv_opendc
 __pycache__
 
-# Ignore Workload Traces
-workload/traces/*/marconi
-workload/traces/*/marconi_efficient
-workload/traces/*/solvinity
-workload/traces/*/solvinity_efficient
-workload/traces/*/surf
-workload/traces/*/surf_efficient
-workload/traces/*/borg
-workload/traces/*/borg_efficient

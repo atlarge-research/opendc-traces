@@ -1,0 +1,5 @@
+# Ignore Workload Traces, except bitbrains-small and surf_week
+traces/*/*
+!traces/*/bitbrains-small/
+!traces/*/surf_week/
+!traces/*/simple_workload/
